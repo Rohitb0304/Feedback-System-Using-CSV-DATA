@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #28a745;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feedback System</h1>
+    
+    <!-- File upload form -->
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <!-- Clear All button -->
+    <form action="/clear" method="post" style="float: right;">
+        <button type="submit">Clear All</button>
+    </form>
+
+    <h2>Uploaded Files</h2>
+
+    <!-- List of uploaded files -->
+    <ul>
+        {% for filename in file_names %}
+            <li>
+                {{ filename }}
+                <a href="{{ url_for('view_pie_chart', filename=filename) }}" target="_blank">View Pie Chart</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
