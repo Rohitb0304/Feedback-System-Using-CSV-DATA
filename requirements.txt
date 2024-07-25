@@ -1,0 +1,4 @@
+pandas
+matplotlib.pyplot
+BytesIO
+tabula  # For reading PDF files

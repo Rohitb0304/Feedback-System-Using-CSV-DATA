@@ -49,7 +49,7 @@
     
     <!-- File upload form -->
     <form action="/" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".csv" required>
+        <input type="file" name="file" accept=".csv, .xlsx, .pdf" required>
         <button type="submit">Upload</button>
     </form>
 
@@ -65,7 +65,8 @@
         {% for filename in file_names %}
             <li>
                 {{ filename }}
-                <a href="{{ url_for('view_pie_chart', filename=filename) }}" target="_blank">View Pie Chart</a>
+                <a href="{{ url_for('view_chart', chart_type='pie', filename=filename) }}" target="_blank">View Pie Chart</a>
+                <a href="{{ url_for('view_chart', chart_type='bar', filename=filename) }}" target="_blank">View Bar Chart</a>
             </li>
         {% endfor %}
     </ul>
