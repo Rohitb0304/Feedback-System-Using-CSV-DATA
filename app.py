@@ -8,10 +8,10 @@ import tabula  # For reading PDF files
 # Use Agg backend to avoid GUI issues in multi-threaded environments
 plt.switch_backend('agg')
 
-app = Flask(__name__, template_folder='/Users/rohitrajratnabansode/Downloads/feedback/Generate Charts/templates')
+app = Flask(__name__, template_folder='/templates')
 
 # Specify the directory where uploaded files will be stored
-UPLOAD_FOLDER = '/Users/rohitrajratnabansode/Downloads/feedback/Generate Charts/data'
+UPLOAD_FOLDER = '/data'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/', methods=['GET', 'POST'])
